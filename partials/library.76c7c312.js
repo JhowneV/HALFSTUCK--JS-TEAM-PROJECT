@@ -1,0 +1,2 @@
+document.getElementById("lib-buttons");JSON.parse(localStorage.getItem("watchlist")||"[]");document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("watched-btn"),t=document.querySelector(".gallery");JSON.parse(localStorage.getItem("movie-watched"));e.addEventListener("click",(function(e){e.preventDefault(),async function(){t.innerHTML=""}()}))})),lastUrl="https://api.themoviedb.org/3/discover/movie?sort_by-popularity.desc&api_key=b5e824a3d922f68ba211fcf6dbdcb6f5";
+//# sourceMappingURL=library.76c7c312.js.map
