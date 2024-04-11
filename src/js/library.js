@@ -19,12 +19,9 @@ const options = {
   },
 };
 
-
 const form = document.getElementById('lib-buttons');
 
 //Watched
-let libraryHtml = ''
-let watchlistArr = JSON.parse(localStorage.getItem('watchlist') || "[]")
 
 document.addEventListener('DOMContentLoaded', function() {
     const watchedBtn = document.getElementById('watched-btn');
@@ -38,23 +35,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function getWatchedMovies() {
         moviesContainer.innerHTML = ''; 
-        // for (const movieId of watchedMovies) {
-        //     try {
-        //         if (!isValidMovieId(movieId)) {
-        //             throw new Error(`Invalid movie ID: ${movieId}`);
-        //         }
-    //             const movie = await getMovieDetailsById(movieId);
-    //             const movieElement = createMovieElement(movie);
-    //             moviesContainer.appendChild(movieElement);
-    // } 
-            // catch (error) {
-            //     if (error.message === 'Movie not found.') {
-            //         console.warn(`Movie with ID ${movieId} not found.`);
-            //     } else {
-            //         console.error('Failed to display movie:', error);
-            //     }
-        //     }
-        // }
+        for (const movieId of watchedMovies) {
+            try {
+                if (!isValidMovieId(movieId)) {
+                    throw new Error(`Invalid movie ID: ${movieId}`);
+                }
+                const movie = await getMovieDetailsById(movieId);
+                const movieElement = createMovieElement(movie);
+                moviesContainer.appendChild(movieElement);
+    } 
+            catch (error) {
+                if (error.message === 'Movie not found.') {
+                    console.warn(`Movie with ID ${movieId} not found.`);
+                } else {
+                    console.error('Failed to display movie:', error);
+                }
+            }
+        }
     }
 
     async function getMovieDetailsById(movieId) {
